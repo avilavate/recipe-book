@@ -1,3 +1,14 @@
-<h1>
-  {{title}}
-</h1>
+<div class="row">
+    <rb-recipe-root></rb-recipe-root>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <rb-recipe-list (selectedevent)="selectedRecipe = $event" (click)="testShare='Avil'" [deletedRecipe]="deletedRecipe"></rb-recipe-list>
+        </div>
+        <div class="col-md-8">
+            <rb-recipe-detail [selectedRecipe]="selectedRecipe" [testShare]="testShare" (delete) ="deletedRecipe=$event" ></rb-recipe-detail>
+        </div>
+    </div>
+
+</div>
