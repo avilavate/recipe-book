@@ -1,6 +1,5 @@
 import { Component, OnInit, EventEmitter, Output, Input, OnChanges, Injectable, Inject } from '@angular/core';
-import { Recipe } from '../shared/recipe';
-import { RecipesService } from '../shared/recipes.service';
+import {Recipe, RecipesService} from '../shared';
 
 @Component({
   selector: 'rb-recipe-list',
@@ -10,7 +9,7 @@ import { RecipesService } from '../shared/recipes.service';
 export class RecipeListComponent implements OnInit {
   recipes: Recipe[] = [];
   @Output() selectedevent = new EventEmitter();
-  @Input() deletedRecipe: Recipe = new Recipe("", "", "");
+  @Input() deletedRecipe: Recipe = new Recipe("", "", "", []);
   constructor(public recSvc: RecipesService) {
     this.selectedevent.emit(this.recipes[0]);
   }

@@ -25,7 +25,7 @@ import {RecipesService} from './shared/recipes.service';
     FormsModule,
     HttpModule
   ],
-  providers: [RecipesService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
