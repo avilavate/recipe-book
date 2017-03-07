@@ -9,6 +9,7 @@ import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { RecipeItemComponent } from './recipe-list/recipe-item.component';
 import { RecipeDetailComponent } from './recipe-list/recipe-detail.component';
 import { RbDropdownDirective } from './users/rb-dropdown.directive';
+import {RecipesService} from './shared/recipes.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { RbDropdownDirective } from './users/rb-dropdown.directive';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [RecipesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
