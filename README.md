@@ -1,3 +1,7 @@
+# Recipe-Book
+
+A simple Recipe-Book SPA solution using angular2.
+
 # RecipeBook
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.30.
