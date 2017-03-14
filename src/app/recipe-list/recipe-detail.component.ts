@@ -1,25 +1,27 @@
-import { Component, OnInit, Input , Output, EventEmitter} from '@angular/core';
-import{Recipe} from '../shared';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Recipe, RecipesService } from '../shared';
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'rb-recipe-detail',
   templateUrl: './recipe-detail.component.html',
 })
 export class RecipeDetailComponent implements OnInit {
-
-  constructor() { 
-
-   
+  selectedRecipeName: string;
+  constructor(public recipesService: RecipesService, public activatedRout: ActivatedRoute) {
+    this.selectedRecipeName = this.activatedRout.snapshot.params['name']
+  
+    this.selectedRecipe = this.recipesService.getRecipebyName(this.selectedRecipeName);
   }
-  detailClicked(){
+  detailClicked() {
     console.log(this.testShare);
   }
   @Output() deleteEvent = new EventEmitter();
   @Input() selectedRecipe: Recipe;
   ngOnInit() {
   }
-  delete(){
-    console.log("For deleteing recipe selected "+this.selectedRecipe);
+  delete() {
+    console.log("For deleteing recipe selected " + this.selectedRecipe);
     this.deleteEvent.emit(this.selectedRecipe);
   }
   @Input() testShare: string;

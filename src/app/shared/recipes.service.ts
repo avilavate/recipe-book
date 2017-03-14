@@ -19,5 +19,9 @@ export class RecipesService {
   addRecipe(recipe: Recipe): void {
     this.recipes.push(recipe);
   }
-
+  getRecipebyName(name: string): Recipe {
+    if(!name) return null;
+    let selectedRecipes = this.recipes.filter((recipe) => { return recipe.name === name; });
+    return selectedRecipes[0];    
+  }
 }
