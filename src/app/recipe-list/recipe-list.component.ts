@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter, Output, Input, OnChanges, Injectable, Inject } from '@angular/core';
-import {Recipe, RecipesService} from '../shared';
-import {ActivatedRoute, Router} from '@angular/router'
+import { Recipe, RecipesService } from '../shared';
+import { ActivatedRoute, Router } from '@angular/router'
 
 @Component({
   selector: 'rb-recipe-list',
@@ -12,7 +12,7 @@ export class RecipeListComponent implements OnInit {
   recipes: Recipe[] = [];
   @Output() selectedevent = new EventEmitter();
   @Input() deletedRecipe: Recipe = new Recipe("", "", "", []);
-  constructor(public recSvc: RecipesService,public activatedRoute:ActivatedRoute, public router:Router) {
+  constructor(public recSvc: RecipesService, public activatedRoute: ActivatedRoute, public router: Router) {
     this.selectedevent.emit(this.recipes[0]);
   }
   //Inmit with data (Recs)
@@ -24,10 +24,5 @@ export class RecipeListComponent implements OnInit {
   onSelected(selecteRecipe: Recipe) {
     console.log(selecteRecipe);
     this.router.navigate(['/recipe-list', selecteRecipe.name]);
-  //  this.selectedevent.emit(selecteRecipe)
-  }
-
-  addRecipe() {
-    this.recSvc.addRecipe(new Recipe("Kebab", "An Afan delicay prepared on charcoal", "./app/recipe-list/images/kebab.jpg",[]));
   }
 }

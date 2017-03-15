@@ -11,6 +11,8 @@ import { RecipeDetailComponent } from './recipe-list/recipe-detail.component';
 import { RbDropdownDirective } from './users/rb-dropdown.directive';
 import {RecipesService} from './shared/recipes.service';
 import { routing } from './routes';
+import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
+import { NewRecipeComponent } from './new-recipe/new-recipe.component';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { routing } from './routes';
     RecipeListComponent,
     RecipeItemComponent,
     RecipeDetailComponent,
-    RbDropdownDirective
+    RbDropdownDirective,
+    EditRecipeComponent,
+    NewRecipeComponent
   ],
   imports: [
     BrowserModule,
