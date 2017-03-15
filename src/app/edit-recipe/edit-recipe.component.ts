@@ -1,19 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import {NgForm} from '@angular/forms';
+
+import {RecipesService} from '../shared'
 
 @Component({
   selector: 'rb-edit-recipe',
-  template: `
-    <p>
-      edit-recipe Works!
-    </p>
-  `,
+  templateUrl:'./edit-recipe.component.html',
   styles: []
 })
-export class EditRecipeComponent implements OnInit {
+export class EditRecipeComponent  {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  constructor(public recipeService:RecipesService) { }
 
 }

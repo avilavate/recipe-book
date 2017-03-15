@@ -1,0 +1,15 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" >
+  <div class="form-group">
+    <span for="recipeName">Recipe Name</span>
+    <input type="text" class="form-control" id="recipeName" placeholder="Enter recipe name" required>
+  </div>
+  <div class="form-group">
+    <span for="recipeDecription">Desciption</span>
+    <input type="text" class="form-control" id="recipeDescription" placeholder="Recipe description" required>
+  </div>
+  <div class="form-group">
+      <span for="imagePath">Photo</span>
+      <input type="file" class="form-control" id="recipeImage" placeholder="Recipe Photo" required>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="[f.invalid]">Add</button>
+</form>

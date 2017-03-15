@@ -1,0 +1,15 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" >
+  <div class="form-group">
+    <span for="recipeName">Email address</span>
+    <input type="text" class="form-control" id="recipeName" placeholder="Enter recipe name">
+  </div>
+  <div class="form-group">
+    <span for="recipeDecription">Desciption</span>
+    <input type="text" class="form-control" id="recipeDescription" placeholder="Recipe description">
+  </div>
+  <div class="form-group">
+      <span for="imagePath">Photo</span>
+      <input type="file" class="form-control" id="recipeImage" placeholder="Recipe Photo">
+  </div>
+  <button type="submit" class="btn btn-primary">Add</button>
+</form>
