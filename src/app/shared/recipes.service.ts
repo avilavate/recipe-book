@@ -21,7 +21,7 @@ export class RecipesService {
   }
   getRecipebyName(name: string): Recipe {
     if(!name) return null;
-    let selectedRecipes = this.recipes.filter((recipe) => { return recipe.name === name; });
+    let selectedRecipes = this.recipes.filter((recipe) => { return recipe.name.toLowerCase() === name.toLowerCase(); });
     return selectedRecipes[0];    
   }
 }
