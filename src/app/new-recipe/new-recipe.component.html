@@ -1,15 +1,15 @@
 <form #f="ngForm" (ngSubmit)="onSubmit(f)" >
   <div class="form-group">
     <span for="recipeName">Recipe Name</span>
-    <input type="text" class="form-control" id="recipeName" placeholder="Enter recipe name" required>
+    <input type="text" class="form-control" id="recipeName" placeholder="Enter recipe name" name="recipeName" required ngModel>
   </div>
   <div class="form-group">
     <span for="recipeDecription">Desciption</span>
-    <input type="text" class="form-control" id="recipeDescription" placeholder="Recipe description" required>
+    <input type="text" class="form-control" id="recipeDescription" placeholder="Recipe description" name="recipeDesc" required ngModel>
   </div>
   <div class="form-group">
       <span for="imagePath">Photo</span>
-      <input type="file" class="form-control" id="recipeImage" placeholder="Recipe Photo" required>
+      <input type="file" class="form-control" id="recipeImage" placeholder="Recipe Photo" name="recipeImage" ngModel>
   </div>
-  <button type="submit" class="btn btn-primary" [disabled]="[f.invalid]">Add</button>
+  <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Add</button>
 </form>

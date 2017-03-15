@@ -8,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class NewRecipeComponent implements OnInit {
 
   constructor() { }
-
+  onSubmit(form) {
+    console.dir(form);
+  }
   ngOnInit() {
   }
 
