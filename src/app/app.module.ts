@@ -11,7 +11,7 @@ import { RecipeDetailComponent } from './recipe-list/recipe-detail.component';
 import { RbDropdownDirective } from './users/rb-dropdown.directive';
 import {RecipesService} from './shared/recipes.service';
 import { routing } from './routes';
-import { childRouting } from "app/recipe-list/recipe-detail.router";
+
 
 @NgModule({
   declarations: [
@@ -26,8 +26,7 @@ import { childRouting } from "app/recipe-list/recipe-detail.router";
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing,
-    childRouting
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]
