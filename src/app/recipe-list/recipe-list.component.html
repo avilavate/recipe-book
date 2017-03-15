@@ -4,9 +4,12 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col-xs-4">
     <ul class="list-group" *ngFor="let recipe of recipes">
       <rb-recipe-item [recipe]="recipe"  (click)="onSelected(recipe)"></rb-recipe-item>
     </ul>
+  </div>
+  <div class="col-xs-8">
+    <router-outlet></router-outlet>
   </div>
 </div>

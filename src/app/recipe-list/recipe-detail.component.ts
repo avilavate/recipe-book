@@ -9,9 +9,10 @@ import { ActivatedRoute } from "@angular/router";
 export class RecipeDetailComponent implements OnInit {
   selectedRecipeName: string;
   constructor(public recipesService: RecipesService, public activatedRout: ActivatedRoute) {
-    this.selectedRecipeName = this.activatedRout.snapshot.params['name']
-  
-    this.selectedRecipe = this.recipesService.getRecipebyName(this.selectedRecipeName);
+    this.activatedRout.params.subscribe((name) => {
+      this.selectedRecipeName = name['name'];
+      this.selectedRecipe = this.recipesService.getRecipebyName(this.selectedRecipeName);
+    });
   }
   detailClicked() {
     console.log(this.testShare);
