@@ -8,7 +8,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 })
 export class RecipeDetailComponent implements OnInit {
   selectedRecipeName: string;
-  constructor(public recipesService: RecipesService, public activatedRout: ActivatedRoute,public route:Router) {
+  constructor(public recipesService: RecipesService, public activatedRout: ActivatedRoute, public route: Router) {
     this.activatedRout.params.subscribe((name) => {
       this.selectedRecipeName = name['name'];
       this.selectedRecipe = this.recipesService.getRecipebyName(this.selectedRecipeName);
@@ -25,8 +25,9 @@ export class RecipeDetailComponent implements OnInit {
     console.log("For deleteing recipe selected " + this.selectedRecipe);
     this.deleteEvent.emit(this.selectedRecipe);
   }
-  edit(){
-      this.route.navigate(["recipe-list","edit","1"]);
+  edit() {
+    console.log("selectedRecipeName: " + this.selectedRecipeName);
+    this.route.navigate(["recipe-list", "edit",this.selectedRecipeName]);
   }
   @Input() testShare: string;
   getSelectREcipe($event) {

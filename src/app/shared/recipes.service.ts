@@ -20,8 +20,14 @@ export class RecipesService {
     this.recipes.push(recipe);
   }
   getRecipebyName(name: string): Recipe {
-    if(!name) return null;
+    if (!name) return null;
     let selectedRecipes = this.recipes.filter((recipe) => { return recipe.name.toLowerCase() === name.toLowerCase(); });
-    return selectedRecipes[0];    
+    return selectedRecipes[0];
+  }
+  editRecipe(name: string, recipe: Recipe) {
+    let editableRecipe = this.recipes.filter(item => {
+      return item.name.toLowerCase() === name.toLowerCase();
+    });
+    this.recipes.splice(this.recipes.indexOf(editableRecipe[0]), 1, recipe);
   }
 }
