@@ -12,15 +12,21 @@ import { Recipe } from "app/shared/recipe";
 })
 export class EditRecipeComponent {
   param: string;
-  constructor(public recipeService: RecipesService, public activatedRoute: ActivatedRoute,public router:Router) {
+  fields: { [key: string]: any } = {};
+  constructor(public recipeService: RecipesService, public activatedRoute: ActivatedRoute, public router: Router) {
     this.activatedRoute.params.subscribe((param) => {
       this.param = param['name']
+      let existingRecipe = this.recipeService.getRecipebyName(this.param);
+      this.fields["name"] = existingRecipe.name;
+      this.fields["description"] = existingRecipe.description;
+      this.fields["imagePath"] = existingRecipe.imagePath;
+      this.fields["ingredients"] = existingRecipe.ingradients;
     });
   }
   onSubmit(f: NgForm) {
     if (f.valid) {
       let recipeName = f.value.recipeName;
-      
+
       this.recipeService.editRecipe(this.param, new Recipe(f.value.recipeName, f.value.recipeDesc, null, []));
       this.router.navigate(["recipe-list"]);
     }
