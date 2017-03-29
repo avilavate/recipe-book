@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { RecipesService } from '../shared'
 import { Recipe } from "app/shared/recipe";
+import { Ingradients } from "app/shared/ingradients";
 
 @Component({
   selector: 'rb-edit-recipe',
@@ -12,7 +13,7 @@ import { Recipe } from "app/shared/recipe";
 })
 export class EditRecipeComponent {
   param: string;
-  fields: { [key: string]: any } = {};
+  fields: { [key: string]: string | Array<Ingradients> } = {};
   constructor(public recipeService: RecipesService, public activatedRoute: ActivatedRoute, public router: Router) {
     this.activatedRoute.params.subscribe((param) => {
       this.param = param['name']
