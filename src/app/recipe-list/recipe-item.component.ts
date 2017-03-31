@@ -7,6 +7,7 @@ import { Recipe, RecipesService } from "../shared";
 @Component({
   selector: 'rb-recipe-item',
   templateUrl: './recipe-item.component.html',
+  styleUrls:['./recipe-item.components.css']
 })
 export class RecipeItemComponent implements OnInit {
 

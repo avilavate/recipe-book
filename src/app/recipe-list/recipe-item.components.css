@@ -1,0 +1,12 @@
+a:hover, a:focus{
+  text-decoration: none;
+  outline: none;
+  background-color: lightblue
+}
+
+.active{
+  font-size: 30px;
+  color: white;
+  border-bottom: 5px solid blue;
+  background-color: lightblue
+}
