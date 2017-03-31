@@ -24,4 +24,8 @@ export class RecipeListComponent implements OnInit {
   onSelected(selecteRecipe: Recipe) {
     this.router.navigate(['/recipe-list', selecteRecipe.name]);
   }
+
+  onAddRecipe() {
+    this.router.navigate(['new']);
+  }
 }
