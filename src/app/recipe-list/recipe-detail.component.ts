@@ -15,23 +15,19 @@ export class RecipeDetailComponent implements OnInit {
     });
   }
   detailClicked() {
-    console.log(this.testShare);
+  
   }
   @Output() deleteEvent = new EventEmitter();
   @Input() selectedRecipe: Recipe;
   ngOnInit() {
   }
   delete() {
-    console.log("For deleteing recipe selected " + this.selectedRecipe);
     this.deleteEvent.emit(this.selectedRecipe);
   }
   edit() {
-    console.log("selectedRecipeName: " + this.selectedRecipeName);
     this.route.navigate(["recipe-list", "edit",this.selectedRecipeName]);
   }
   @Input() testShare: string;
   getSelectREcipe($event) {
-    alert("Hi");
-    console.log($event);
   }
 }

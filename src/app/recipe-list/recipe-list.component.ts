@@ -22,7 +22,6 @@ export class RecipeListComponent implements OnInit {
 
   //raise custom event
   onSelected(selecteRecipe: Recipe) {
-    console.log(selecteRecipe);
     this.router.navigate(['/recipe-list', selecteRecipe.name]);
   }
 }
