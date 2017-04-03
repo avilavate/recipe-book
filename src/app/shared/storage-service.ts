@@ -2,9 +2,12 @@ import { Injectable } from '@angular/core';
 
 import * as firebase from 'firebase';
 import { Firebase_Init } from './init';
+import { Observable } from "rxjs/Observable";
+import { Subject } from "rxjs/Subject";
 
 @Injectable()
 export class StorageService {
+    tokenObservable: Subject<string> = new Subject();
     firebase: firebase.app.App;
     constructor() {
         let config = {
@@ -26,12 +29,34 @@ export class StorageService {
             error => { console.log("Signup Error!: " + error.message); }
             );
     }
+    isAuthenticated() {
+        if (this.firebase.auth().currentUser == null) {
+            console.log("Token is null");
+            this.tokenObservable.next("");
+            return;
+        }
+        this.firebase.auth().currentUser.getToken().then(
+            token => {
+                this.tokenObservable.next(token);
+                console.log("Token: " + token);
+            },
+            error => { console.log(error.message); }
+        );
+    }
 
     signInUser(emial: string, password: string) {
         this.firebase.auth().signInWithEmailAndPassword(emial, password).
             then(
-            data => { console.log("Signin Done!"); },
+            data => {
+                console.log("Signin Done!");
+                this.isAuthenticated();
+            },
             error => { console.log("Signin Error :" + error.message); }
             )
+    }
+
+    signOutUSer() {
+        this.firebase.auth().signOut();
+        this.tokenObservable.next('');
     }
 }

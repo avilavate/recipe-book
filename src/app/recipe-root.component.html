@@ -15,10 +15,10 @@
         <li class="dropdown" rbDropdown>
           <a class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">User <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a [routerLink]="['signin']">Login</a></li>
+            <li *ngIf="!(!!userToken)"><a [routerLink]="['signin']">Login</a></li>
             <li><a>Register</a></li>
             <li role="separator" class="divider"></li>
-            <li><a>Logout</a></li>
+            <li><a (click)="signOutUser()">Logout</a></li>
           </ul>
         </li>
       </ul>
