@@ -13,6 +13,8 @@ import {RecipesService} from './shared/recipes.service';
 import { routing } from './routes';
 import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
 import { NewRecipeComponent } from './new-recipe/new-recipe.component';
+import { LoginUserComponent } from './users/login-user.component';
+import { StorageService } from "app/shared/storage-service";
 
 
 @NgModule({
@@ -24,7 +26,8 @@ import { NewRecipeComponent } from './new-recipe/new-recipe.component';
     RecipeDetailComponent,
     RbDropdownDirective,
     EditRecipeComponent,
-    NewRecipeComponent
+    NewRecipeComponent,
+    LoginUserComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,7 @@ import { NewRecipeComponent } from './new-recipe/new-recipe.component';
     HttpModule,
     routing
   ],
-  providers: [],
+  providers: [StorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
