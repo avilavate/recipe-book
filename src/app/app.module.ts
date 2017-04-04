@@ -17,6 +17,7 @@ import { LoginUserComponent } from './users/login-user.component';
 import { StorageService } from "app/shared/storage-service";
 import { AuthGuardService } from "app/shared/auth-guard.service";
 import { HighlightLinkDirective } from './highlight-link.directive';
+import { SignupUserComponent } from './users/signup-user.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { HighlightLinkDirective } from './highlight-link.directive';
     EditRecipeComponent,
     NewRecipeComponent,
     LoginUserComponent,
-    HighlightLinkDirective
+    HighlightLinkDirective,
+    SignupUserComponent
   ],
   imports: [
     BrowserModule,

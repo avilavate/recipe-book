@@ -3,6 +3,7 @@ import { Subscription } from "rxjs/Subscription";
 
 import { StorageService } from './shared';
 import { Router } from "@angular/router";
+import { Subject } from "rxjs/Subject";
 
 @Component({
   selector: 'rb-recipe-root',
@@ -15,14 +16,16 @@ export class RecipeRootComponent implements OnDestroy {
 
   userToken: string;
   tokenSubsription: Subscription;
-
-  constructor(private storageService: StorageService, private router:Router) {
+  userEmail: Subject<string>;
+  constructor(private storageService: StorageService, private router: Router) {
     this.storageService.isAuthenticated();
     this.tokenSubsription = this.storageService.tokenObservable.subscribe(token => {
       this.userToken = token;
-    })
+    });
+    this.userEmail = this.storageService.getUserName();
+    this.userEmail.subscribe((em => { console.log(em) }));
   }
-  signOutUser(){
+  signOutUser() {
     this.storageService.signOutUSer();
     this.router.navigate(["signin"]);
   }

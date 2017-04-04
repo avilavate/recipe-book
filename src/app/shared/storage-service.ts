@@ -21,6 +21,14 @@ export class StorageService {
         this.firebase = firebase.initializeApp(config);
     }
 
+    getUserName(): Subject<string> {
+        let userEmail: Subject<string>= new Subject<string>();
+        this.tokenObservable.subscribe(token => {
+            if (!!token) { userEmail.next(this.firebase.auth().currentUser.email); }
+        })
+        return userEmail;
+    }
+
     signUpUser(email: string, password: string) {
         this.firebase = Firebase_Init.Init();
         this.firebase.auth().createUserWithEmailAndPassword(email, password).
