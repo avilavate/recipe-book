@@ -11,12 +11,12 @@ import { Router } from "@angular/router";
 })
 export class LoginUserComponent implements OnDestroy {
   ngOnDestroy(): void {
-   this.tokenSubscription.unsubscribe();
+    this.tokenSubscription.unsubscribe();
   }
   isAuthenticatedUser: boolean = false;
   tokenSubscription: Subscription;
   constructor(private storageService: StorageService, private router: Router) {
-
+    this.storageService.tokenObservable.next('');
     this.tokenSubscription = this.storageService.tokenObservable.subscribe(token => {
       this.isAuthenticatedUser = !!token;
       if (this.isAuthenticatedUser) this.router.navigate(["/recipe-list"]);
