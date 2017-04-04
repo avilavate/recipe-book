@@ -19,12 +19,11 @@ export class LoginUserComponent implements OnDestroy {
 
     this.tokenSubscription = this.storageService.tokenObservable.subscribe(token => {
       this.isAuthenticatedUser = !!token;
-      if (this.isAuthenticatedUser) this.router.navigate(["/"]);
+      if (this.isAuthenticatedUser) this.router.navigate(["/recipe-list"]);
     })
 
   }
   onLoginInUser(loginForm: NgForm) {
-    console.dir(loginForm);
     if (loginForm.invalid) return;
     this.storageService.signInUser(loginForm.value.email,
       loginForm.value.password);

@@ -20,7 +20,6 @@ export class RecipeRootComponent implements OnDestroy {
     this.storageService.isAuthenticated();
     this.tokenSubsription = this.storageService.tokenObservable.subscribe(token => {
       this.userToken = token;
-      console.log("Token: " + this.userToken);
     })
   }
   signOutUser(){

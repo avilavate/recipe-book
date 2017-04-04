@@ -9,8 +9,8 @@ import { LoginUserComponent } from './users/login-user.component';
 import { AuthGuardService } from "app/shared/auth-guard.service";
 
 const routes: Routes = [
-    { path: '', redirectTo: '/recipe-list', pathMatch: 'full' },
-    { path: ' ', redirectTo: '/recipe-list', pathMatch: 'full' },
+    { path: '', redirectTo: '/signin', pathMatch: 'full' },
+    { path: ' ', redirectTo: '/signin', pathMatch: 'full' },
     { path: 'signin', component: LoginUserComponent },
     { path: 'recipe-list', component: RecipeListComponent, children: recipesRoutes, canActivate: [AuthGuardService] },
     { path: 'new', component: NewRecipeComponent, canActivate: [AuthGuardService] }

@@ -20,7 +20,6 @@ export class NewRecipeComponent {
     this.newRecipe = new Recipe(form.value.recipeName, form.value.recipeDesc, form.value.recipeImage, []);
     this.http.post(this.fireBaseUrl, this.newRecipe).subscribe(
       data => {
-        console.log("Success: " + data);
         //Temperory fix ToDo: Remove this code later
         this.recipesService.addRecipe(this.newRecipe);
       },
@@ -30,6 +29,6 @@ export class NewRecipeComponent {
       () => {
         console.log("request completed!")
       });
-    this.router.navigate(["/"]);
+    this.router.navigate(["/recipe-list"]);
   }
 }
