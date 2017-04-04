@@ -6,13 +6,14 @@ import { RecipeDetailComponent } from "app/recipe-list/recipe-detail.component";
 import { recipesRoutes } from "app/recipe-list/recipe-detail.router";
 import { NewRecipeComponent } from "app/new-recipe/new-recipe.component";
 import { LoginUserComponent } from './users/login-user.component';
+import { AuthGuardService } from "app/shared/auth-guard.service";
 
 const routes: Routes = [
     { path: '', redirectTo: '/recipe-list', pathMatch: 'full' },
     { path: ' ', redirectTo: '/recipe-list', pathMatch: 'full' },
     { path: 'signin', component: LoginUserComponent },
-    { path: 'recipe-list', component: RecipeListComponent, children: recipesRoutes },
-    { path: 'new', component: NewRecipeComponent }
+    { path: 'recipe-list', component: RecipeListComponent, children: recipesRoutes, canActivate: [AuthGuardService] },
+    { path: 'new', component: NewRecipeComponent, canActivate: [AuthGuardService] }
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(routes);

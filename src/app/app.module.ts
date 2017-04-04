@@ -15,6 +15,7 @@ import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
 import { NewRecipeComponent } from './new-recipe/new-recipe.component';
 import { LoginUserComponent } from './users/login-user.component';
 import { StorageService } from "app/shared/storage-service";
+import { AuthGuardService } from "app/shared/auth-guard.service";
 
 
 @NgModule({
@@ -35,7 +36,7 @@ import { StorageService } from "app/shared/storage-service";
     HttpModule,
     routing
   ],
-  providers: [StorageService],
+  providers: [StorageService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
