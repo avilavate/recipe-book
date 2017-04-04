@@ -16,6 +16,7 @@ import { NewRecipeComponent } from './new-recipe/new-recipe.component';
 import { LoginUserComponent } from './users/login-user.component';
 import { StorageService } from "app/shared/storage-service";
 import { AuthGuardService } from "app/shared/auth-guard.service";
+import { HighlightLinkDirective } from './highlight-link.directive';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { AuthGuardService } from "app/shared/auth-guard.service";
     RbDropdownDirective,
     EditRecipeComponent,
     NewRecipeComponent,
-    LoginUserComponent
+    LoginUserComponent,
+    HighlightLinkDirective
   ],
   imports: [
     BrowserModule,

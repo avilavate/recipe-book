@@ -8,17 +8,17 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a [routerLink]="['recipe-list']">Recipes</a></li>
-        <li><a>Shopping List</a></li>
+        <li  class="divider-vertical " rbHighlightLink><a [routerLink]="['recipe-list']">Recipes</a></li>
+        <li  class="divider-vertical " rbHighlightLink><a>Shopping List</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown" rbDropdown>
-          <a class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">User <span class="caret"></span></a>
+          <a class="dropdown-toggle" rbHighlightLink role="button" aria-haspopup="true" aria-expanded="false">User <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li *ngIf="!(!!userToken)"><a [routerLink]="['signin']">Login</a></li>
-            <li><a>Register</a></li>
+            <li *ngIf="!(!!userToken)" rbHighlightLink><a [routerLink]="['signin']">Login</a></li>
+            <li rbHighlightLink><a>Register</a></li>
             <li role="separator" class="divider"></li>
-            <li><a (click)="signOutUser()">Logout</a></li>
+            <li rbHighlightLink><a (click)="signOutUser()">Logout</a></li>
           </ul>
         </li>
       </ul>
