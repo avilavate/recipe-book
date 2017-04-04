@@ -18,6 +18,7 @@ import { StorageService } from "app/shared/storage-service";
 import { AuthGuardService } from "app/shared/auth-guard.service";
 import { HighlightLinkDirective } from './highlight-link.directive';
 import { SignupUserComponent } from './users/signup-user.component';
+import { EqualValidatorDirective } from './equal-validator.directive';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { SignupUserComponent } from './users/signup-user.component';
     NewRecipeComponent,
     LoginUserComponent,
     HighlightLinkDirective,
-    SignupUserComponent
+    SignupUserComponent,
+    EqualValidatorDirective
   ],
   imports: [
     BrowserModule,
