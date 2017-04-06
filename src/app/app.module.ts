@@ -19,6 +19,7 @@ import { AuthGuardService } from "app/shared/auth-guard.service";
 import { HighlightLinkDirective } from './highlight-link.directive';
 import { SignupUserComponent } from './users/signup-user.component';
 import { EqualValidatorDirective } from './equal-validator.directive';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { EqualValidatorDirective } from './equal-validator.directive';
     LoginUserComponent,
     HighlightLinkDirective,
     SignupUserComponent,
-    EqualValidatorDirective
+    EqualValidatorDirective,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
