@@ -1,5 +1,5 @@
 import { Injectable, OnDestroy } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { Observable } from "rxjs/Observable";
 
 import { StorageService } from "./storage-service";
@@ -16,14 +16,18 @@ export class AuthGuardService implements CanActivate, OnDestroy {
 
   tokenSubscripton: Subscription;
   tokenPresent: boolean;
-  constructor(public storageService: StorageService) {
+  constructor(public storageService: StorageService, private router: Router) {
     this.tokenSubscripton = this.storageService.tokenObservable.subscribe(token => {
       this.tokenPresent = (!!token) ? true : false;
     })
   }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):
     boolean | Observable<boolean> | Promise<boolean> {
-    return this.tokenPresent;
+    if (this.tokenPresent) {
+      return true;
+    }
+    else this.router.navigate(['/signin']);
+    return false;
   }
 }
 
