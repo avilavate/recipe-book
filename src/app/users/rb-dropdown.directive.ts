@@ -11,8 +11,10 @@ export class RbDropdownDirective {
   @HostListener("mouseleave") mouseleave($event) {
     this.isOpen = false;
   }
-  @HostBinding("class.open") get getIsOPened(){
+  @HostListener("mouseenter") mouseenter($event) {
+    this.isOpen = true;
+  }
+  @HostBinding("class.open") get getIsOPened() {
     return this.isOpen;
   }
-  @HostBinding("class.border") true
 }

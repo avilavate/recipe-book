@@ -14,12 +14,12 @@
           <input class="form-control" name="password" placeholder="New Password" type="password" ngModel required>
         </div>
         <div class="col-md-6 col-xs-6">
-          <input class="form-control" name="password1" placeholder="Reenter Password" type="password" ngModel required>
+          <input class="form-control" name="password1" validateEqual="password" placeholder="Reenter Password" type="password" ngModel required>
         </div>
       </div>
       <br> 
       <br>
-      <button class="btn btn-lg btn-primary btn-block" type="submit" disabled="f.invalid">Sign up</button>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="f.invalid">Sign up</button>
     </form>
   </div>
 </div>
