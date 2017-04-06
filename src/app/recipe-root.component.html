@@ -1,33 +1,23 @@
-<nav class="navbar navbar-default  navbar-fixed-top">
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" [routerLink]="['recipe-list']">Recipe Book</a>
+      <a class="navbar-brand" [routerLink]="['recipe-list']" rbHighlightLink>Recipe Book</a>
     </div>
-  </div>
-  <div class="navbar-collapse collapse in">
     <ul class="nav navbar-nav">
-      <li class="divider-vertical " rbHighlightLink><a [routerLink]="['recipe-list']">Recipes</a></li>
+      <li class="divider-vertical active" rbHighlightLink><a [routerLink]="['recipe-list']">Recipes</a></li>
       <li class="divider-vertical " rbHighlightLink><a>Shopping List</a></li>
-      <ul class="nav navbar-nav navbar-right">
-        <li rbHighlightLink><a>{{userEmail | async}}</a></li>
-        <li class="dropdown" rbDropdown>
-          <a class="dropdown-toggle" rbHighlightLink role="button" aria-haspopup="true" aria-expanded="false">User <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li *ngIf="!(!!userToken)" rbHighlightLink><a [routerLink]="['signin']">Login</a></li>
-            <li rbHighlightLink *ngIf="!(!!userToken)"><a [routerLink]="['signup']">Register</a></li>
-            <li role="separator" *ngIf="(!!userToken)" class="divider"></li>
-            <li rbHighlightLink *ngIf="(!!userToken)"> <a (click)="signOutUser()">Logout</a></li>
-          </ul>
-        </li>
-      </ul>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li rbHighlightLink *ngIf="userToken && userToken.length>0"><a>{{userEmail}}</a></li>
+      <li class="dropdown" rbDropdown>
+        <a class="dropdown-toggle" rbHighlightLink role="button" aria-haspopup="true" aria-expanded="false">User <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li *ngIf="!(!!userToken)" rbHighlightLink><a [routerLink]="['signin']">Login</a></li>
+          <li rbHighlightLink *ngIf="!(!!userToken)"><a [routerLink]="['signup']">Register</a></li>
+          <li role="separator" *ngIf="(!!userToken)" class="divider"></li>
+          <li rbHighlightLink *ngIf="(!!userToken)"> <a (click)="signOutUser()">Logout</a></li>
+        </ul>
+      </li>
     </ul>
   </div>
 </nav>
-
-
-

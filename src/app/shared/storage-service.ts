@@ -65,6 +65,6 @@ export class StorageService {
 
     signOutUSer() {
         this.firebase.auth().signOut();
-        this.tokenObservable.next('');
+        this.tokenObservable.next("");
     }
 }

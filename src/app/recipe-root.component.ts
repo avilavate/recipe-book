@@ -12,21 +12,23 @@ import { Subject } from "rxjs/Subject";
 export class RecipeRootComponent implements OnDestroy {
   ngOnDestroy(): void {
     this.tokenSubsription.unsubscribe();
+    this.userMailSubscription.unsubscribe();
   }
-
+  
   userToken: string;
   tokenSubsription: Subscription;
-  userEmail: Subject<string>;
+  userMailSubscription:Subscription;
+  userEmail: string;
   constructor(private storageService: StorageService, private router: Router) {
     this.storageService.isAuthenticated();
     this.tokenSubsription = this.storageService.tokenObservable.subscribe(token => {
       this.userToken = token;
     });
-    this.userEmail = this.storageService.getUserName();
-    this.userEmail.subscribe((em => { console.log(em) }));
+    this.storageService.getUserName().subscribe(email=>{this.userEmail=email;});
   }
   signOutUser() {
     this.storageService.signOutUSer();
+    this.storageService.tokenObservable.next("");
     this.router.navigate(["signin"]);
   }
 }
