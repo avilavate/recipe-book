@@ -22,7 +22,7 @@ export class StorageService {
     }
 
     getUserName(): Subject<string> {
-        let userEmail: Subject<string>= new Subject<string>();
+        let userEmail: Subject<string> = new Subject<string>();
         this.tokenObservable.subscribe(token => {
             if (!!token) { userEmail.next(this.firebase.auth().currentUser.email); }
         })
@@ -30,12 +30,7 @@ export class StorageService {
     }
 
     signUpUser(email: string, password: string) {
-        this.firebase = Firebase_Init.Init();
-        this.firebase.auth().createUserWithEmailAndPassword(email, password).
-            then(
-            data => { console.log("SignUp Complete: " + email + ": " + data); },
-            error => { console.log("Signup Error!: " + error.message); }
-            );
+        return this.firebase.auth().createUserWithEmailAndPassword(email, password);
     }
     isAuthenticated() {
         if (this.firebase.auth().currentUser == null) {
