@@ -1,5 +1,5 @@
 <nav class="navbar navbar-default">
-  <div class="container-fluid">
+  <div class="container-fluid" disableAll  [isDisableAll]="!(userToken && userToken.length>0)">
     <div class="navbar-header">
       <a class="navbar-brand" [routerLink]="['recipe-list']" rbHighlightLink>Recipe Book</a>
     </div>
@@ -15,7 +15,7 @@
           <li *ngIf="!(!!userToken)" rbHighlightLink><a [routerLink]="['signin']">Login</a></li>
           <li rbHighlightLink *ngIf="!(!!userToken)"><a [routerLink]="['signup']">Register</a></li>
           <li role="separator" *ngIf="(!!userToken)" class="divider"></li>
-          <li rbHighlightLink *ngIf="(!!userToken)"> <a (click)="signOutUser()">Logout</a></li>
+          <li rbHighlightLink *ngIf="(!!userToken)"> <a (click)="signOutUser()" >Logout</a></li>
         </ul>
       </li>
     </ul>

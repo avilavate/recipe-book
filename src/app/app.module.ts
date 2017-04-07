@@ -20,6 +20,7 @@ import { HighlightLinkDirective } from './highlight-link.directive';
 import { SignupUserComponent } from './users/signup-user.component';
 import { EqualValidatorDirective } from './equal-validator.directive';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { DisableAllDirective } from './shared/disable-all.directive';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     HighlightLinkDirective,
     SignupUserComponent,
     EqualValidatorDirective,
-    NotFoundComponent
+    NotFoundComponent,
+    DisableAllDirective
   ],
   imports: [
     BrowserModule,
