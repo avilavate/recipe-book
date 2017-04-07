@@ -5,17 +5,18 @@
       <p id="profile-name" class="profile-name-card"></p>
     </div>
 
-    <form class="form-signin" #f="ngForm" (ngSubmit)="onLoginInUser(f)" >
+    <form class="form-signin" #f="ngForm" (ngSubmit)="onLoginInUser(f)">
       <div class="form-group row">
         <span id="reauth-email" class="reauth-email"></span>
-        <input  type="email" id="inputEmail"  class="form-control" name="email" placeholder="Email address" required="" autofocus=""
+        <input type="email" id="inputEmail" class="form-control" name="email" placeholder="Email address" required="" autofocus=""
           ngModel>
       </div>
       <div class="form-group row">
-        <input type="password" id="inputPassword"  class="form-control" name="password" placeholder="Password" required="" ngModel>
+        <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required="" ngModel>
       </div>
       <div class="form-group row">
-        <button class="btn btn-primary form-control" [disabled]="f.invalid" type="submit">Sign in</button>
+        <div class="col-md-6 col-xs-6"><button class="btn btn-primary form-control" [disabled]="f.invalid" type="submit">Sign in</button></div>
+        <div class="col-md-6 col-xs-6"><button class="btn btn-primary form-control" (click)="onUserSignUp()">Sign Up</button></div>
       </div>
     </form>
   </div>

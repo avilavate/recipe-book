@@ -28,4 +28,8 @@ export class LoginUserComponent implements OnDestroy {
     this.storageService.signInUser(loginForm.value.email,
       loginForm.value.password);
   }
+  onUserSignUp() {
+    this.storageService.signOutUSer();
+    this.router.navigate(['signup']);
+  }
 }
