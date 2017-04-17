@@ -15,7 +15,7 @@ const routes: Routes = [
     { path: ' ', redirectTo: '/signin', pathMatch: 'full' },
     { path: 'signin', component: LoginUserComponent },
     { path: 'signup', component: SignupUserComponent },
-    { path: 'recipe-list', component: RecipeListComponent, children: recipesRoutes, canActivate: [AuthGuardService] },
+    //{ path: 'recipe-list', component: RecipeListComponent, children: recipesRoutes, canActivate: [AuthGuardService] },
     { path: 'new', component: NewRecipeComponent, canActivate: [AuthGuardService] },
     { path: '**', component: NotFoundComponent },
 ];
