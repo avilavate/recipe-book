@@ -19,6 +19,7 @@ import { DisableAllDirective } from './shared/disable-all.directive';
 import { RecipesModule } from "app/recipes.module";
 import { RecipeRootComponent } from "app/recipe-root.component";
 import { ToastModule } from '../../node_modules/ng2-toastr/ng2-toastr';
+import { StorageBlobService } from "app/shared/storage-blob.service";
 
 
 @NgModule({
@@ -43,7 +44,7 @@ import { ToastModule } from '../../node_modules/ng2-toastr/ng2-toastr';
     RecipesModule,
     ToastModule.forRoot()
   ],
-  providers: [StorageService, AuthGuardService],
+  providers: [StorageService, AuthGuardService, StorageBlobService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
