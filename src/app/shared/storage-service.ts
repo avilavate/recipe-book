@@ -5,10 +5,22 @@ import { Firebase_Init } from './init';
 import { Observable } from "rxjs/Observable";
 import { Subject } from "rxjs/Subject";
 
+interface IMessage {
+    message: string;
+    isSuccess: boolean;
+}
+
+export class ResponseMessage implements IMessage {
+    constructor(public isSuccess:boolean, public message:string) { }
+}
+
+//import { ResponseMessage } from './IMessage.d';
 @Injectable()
 export class StorageService {
     tokenObservable: Subject<string> = new Subject();
     firebase: firebase.app.App;
+    responseMessage: Subject<ResponseMessage> = new Subject();
+
     constructor() {
         let config = {
             apiKey: "AIzaSyDx3b3Bff7dkPqznoyytJci4ZiVk6DMR5M",
@@ -52,10 +64,13 @@ export class StorageService {
             then(
             data => {
                 console.log("Signin Done!");
+                this.responseMessage.next(new ResponseMessage(true,"Signin Done!"));
                 this.isAuthenticated();
             },
-            error => { console.log("Signin Error :" + error.message); }
-            )
+            error => {
+                console.log("Signin Error :" + error.message);
+                   this.responseMessage.next(new ResponseMessage(false,error.message));
+            });
     }
 
     signOutUSer() {

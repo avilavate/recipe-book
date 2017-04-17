@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { RbDropdownDirective } from './users/rb-dropdown.directive';
@@ -17,6 +18,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { DisableAllDirective } from './shared/disable-all.directive';
 import { RecipesModule } from "app/recipes.module";
 import { RecipeRootComponent } from "app/recipe-root.component";
+import { ToastModule } from '../../node_modules/ng2-toastr/ng2-toastr';
 
 
 @NgModule({
@@ -30,13 +32,16 @@ import { RecipeRootComponent } from "app/recipe-root.component";
     EqualValidatorDirective,
     NotFoundComponent,
     DisableAllDirective
+    
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpModule,
     routing,
-    RecipesModule
+    RecipesModule,
+    ToastModule.forRoot()
   ],
   providers: [StorageService, AuthGuardService],
   bootstrap: [AppComponent]
