@@ -8,13 +8,13 @@ import { RecipeItemComponent } from "app/recipe-list/recipe-item.component";
 import { RecipeListComponent } from "app/recipe-list/recipe-list.component";
 import { NotFoundComponent } from "app/not-found/not-found.component";
 import { FormsModule } from "@angular/forms";
-import { childRouting } from "app/recipe-list/recipe-detail.router";
+import { childRouting, RecipeRoutingModule } from "app/recipe-list/recipe-detail.router";
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    childRouting
+    RecipeRoutingModule
   ],
   declarations: [
     EditRecipeComponent,
