@@ -23,6 +23,7 @@ import { childRouting, RecipeRoutingModule } from "app/recipe-list/recipe-detail
     RecipeItemComponent,
     RecipeListComponent,
 //    NotFoundComponent
-  ]
+  ],
+  exports:[RecipeListComponent]
 })
-export class RecipesModule { }
+export default class RecipesModule { }

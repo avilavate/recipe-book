@@ -28,7 +28,7 @@ export class LoginUserComponent implements OnDestroy {
     public storageBlobService: StorageBlobService) {
     this.storageService.tokenObservable.next('');
     this.tokenSubscription = this.storageService.tokenObservable.subscribe(token => {
-      if (!!token) this.router.navigate(["/recipe-list"]);
+      if (!!token) this.router.navigate(["/home"]);
     })
     this.toastr.setRootViewContainerRef(vRef);
     this.messageSubscription = this.storageService.responseMessage.subscribe(res => {

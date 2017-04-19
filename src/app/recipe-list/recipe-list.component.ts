@@ -26,6 +26,6 @@ export class RecipeListComponent implements OnInit {
   }
 
   onAddRecipe() {
-    this.router.navigate(['new']);
+    this.router.navigate(['/recipe-list', 'new', '']);
   }
 }

@@ -23,7 +23,7 @@ export class AuthGuardService implements CanActivate, OnDestroy {
   }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):
     boolean | Observable<boolean> | Promise<boolean> {
-      this.storageService.isAuthenticated();
+    this.storageService.isAuthenticated();
     if (this.tokenPresent) {
       return true;
     }

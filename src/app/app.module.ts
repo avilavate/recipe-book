@@ -20,6 +20,7 @@ import { RecipesModule } from "app/recipes.module";
 import { RecipeRootComponent } from "app/recipe-root.component";
 import { ToastModule } from '../../node_modules/ng2-toastr/ng2-toastr';
 import { StorageBlobService } from "app/shared/storage-blob.service";
+import { HomeComponent } from "app/home/home.component";
 
 
 @NgModule({
@@ -32,8 +33,8 @@ import { StorageBlobService } from "app/shared/storage-blob.service";
     SignupUserComponent,
     EqualValidatorDirective,
     NotFoundComponent,
-    DisableAllDirective
-    
+    DisableAllDirective,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +42,7 @@ import { StorageBlobService } from "app/shared/storage-blob.service";
     FormsModule,
     HttpModule,
     routing,
-    RecipesModule,
+   // RecipesModule,
     ToastModule.forRoot()
   ],
   providers: [StorageService, AuthGuardService, StorageBlobService],

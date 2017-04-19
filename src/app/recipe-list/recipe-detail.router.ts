@@ -9,12 +9,13 @@ import { NewRecipeComponent } from "app/new-recipe/new-recipe.component";
 
 export const recipesRoutes: Routes = [
     { path: ':name', component: RecipeDetailComponent, canActivate: [AuthGuardService] },
-    { path: 'new', component: NewRecipeComponent, canActivate: [AuthGuardService] },
+    { path: ':new/', component: NewRecipeComponent, canActivate: [AuthGuardService] },
     { path: ':edit/:name', component: EditRecipeComponent, canActivate: [AuthGuardService] }
 ];
 
 export const RecipesListRoutes: Routes = [
-    { path: 'recipe-list', component: RecipeListComponent, children: recipesRoutes, canActivate: [AuthGuardService] }
+    { path: '', component: RecipeListComponent, children: recipesRoutes },
+
 ]
 
 export const childRouting = RouterModule.forChild(RecipesListRoutes);
