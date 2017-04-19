@@ -12,6 +12,7 @@ import { NotFoundComponent } from "app/not-found/not-found.component";
 import { DisableAllDirective } from "app/shared/disable-all.directive";
 import { HomeComponent } from "app/home/home.component";
 import { ToastModule } from "ng2-toastr/ng2-toastr";
+import { AppComponent } from "app/app.component";
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { ToastModule } from "ng2-toastr/ng2-toastr";
     routing
   ],
   declarations: [
+    AppComponent,
     RecipeRootComponent,
     RbDropdownDirective,
     LoginUserComponent,
@@ -31,6 +33,6 @@ import { ToastModule } from "ng2-toastr/ng2-toastr";
     NotFoundComponent,
     DisableAllDirective,
     HomeComponent],
-    exports:[RecipeRootComponent]
+    exports:[RecipeRootComponent, AppComponent]
 })
 export class CoreModule { }
