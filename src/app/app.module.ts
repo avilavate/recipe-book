@@ -16,7 +16,6 @@ import { SignupUserComponent } from './users/signup-user.component';
 import { EqualValidatorDirective } from './equal-validator.directive';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { DisableAllDirective } from './shared/disable-all.directive';
-import { RecipesModule } from "app/recipes.module";
 import { RecipeRootComponent } from "app/recipe-root.component";
 import { ToastModule } from '../../node_modules/ng2-toastr/ng2-toastr';
 import { StorageBlobService } from "app/shared/storage-blob.service";
