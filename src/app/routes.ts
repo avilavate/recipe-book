@@ -1,4 +1,4 @@
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { ModuleWithProviders } from "@angular/core";
 
 import { LoginUserComponent } from './users/login-user.component';
@@ -17,4 +17,7 @@ const routes: Routes = [
     { path: 'recipe-list', loadChildren: 'app/recipe-list/recipes.module#RecipesModule' }
 ];
 
+//Note Enable this if preloading is required.
+
+//export const routing: ModuleWithProviders = RouterModule.forRoot(routes,{preloadingStrategy:PreloadAllModules });
 export const routing: ModuleWithProviders = RouterModule.forRoot(routes);
